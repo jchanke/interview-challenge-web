@@ -99,8 +99,8 @@ main {
 
 .video-category-info {
   /* Layout */
-  flex-shrink: 0;
   margin: 8rem 0;
+  flex-shrink: 1; /* shrink on small screens */
 
   /* Flexbox */
   display: flex;
@@ -268,6 +268,10 @@ main {
    ======================================== */
 
 @media (min-width: 576px) {
+  .video-category-info {
+    flex-shrink: 0; /* don't shrink on large screens */
+  }
+
   .video-category-title {
     font-size: 2.5em;
   }
