@@ -82,6 +82,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center; /* sets video-category-info roughly halfway down */
+  gap: 5vw;
 }
 
 .video-category-info {
@@ -211,13 +212,9 @@ main {
 @media (min-width: 1200px) {
   .modal-player {
     position: static;
-    width: auto;
     height: auto;
-    justify-self: stretch;
 
-    iframe {
-      max-width: inherit;
-      height: inherit;
-    }
+    /* This is a flex-box item now */
+    flex-shrink: 4; /* magic number, but works */
   }
 }
