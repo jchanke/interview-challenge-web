@@ -59,7 +59,6 @@ main {
 
   /* Layout */
   padding: 0 var(--pg-padding);
-  height: 60vh;
   position: relative; /* needed for ::before pseudo-child to not overflow */
   overflow: hidden;
 
@@ -81,9 +80,15 @@ main {
   mix-blend-mode: soft-light;
 }
 
+.header {
+  margin-top: 1rem;
+  font-size: 0.85em;
+}
+
 .container {
   /* Layout */
   flex-grow: 1;
+  margin-bottom: 2rem;
 
   /* Flexbox */
   display: flex;
@@ -93,6 +98,9 @@ main {
 }
 
 .video-category-info {
+  /* Layout */
+  flex-shrink: 0;
+
   /* Flexbox */
   display: flex;
   flex-direction: column;
@@ -280,6 +288,6 @@ main {
     height: auto;
 
     /* This is a flex-box item now */
-    flex-shrink: 6; /* magic number, but works */
+    flex-shrink: 1; /* video should shrink, video category desc should not */
   }
 }
