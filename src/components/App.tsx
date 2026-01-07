@@ -15,7 +15,7 @@ export const App = () => {
   // On page load, load video data from API
   const getVideoSeriesData = async () => {
     try {
-      const response = await fetch("/api/data.json");
+      const response = await fetch(`${import.meta.env.BASE_URL}api/data.json`);
       if (!response.ok) {
         throw new Error(
           `HTTP ${response.status}: failed to load data, please try again`
