@@ -6,6 +6,7 @@
 :root {
   --max-width-video-category-desc: 30em;
   --pg-padding: 7vw; /* for hero-banner, video-list */
+  --bg-warning: #dc3545;
 }
 
 body {
@@ -181,7 +182,7 @@ main {
   justify-content: space-between;
 }
 
-/* === MODAL === */
+/* === VIDEO PLAYER === */
 
 .modal-player {
   /* Visual */
@@ -209,9 +210,30 @@ main {
   }
 }
 
+/* === TOAST NOTIFICATION === */
+.error {
+  /* Visual */
+  color: white;
+  background-color: var(--bg-warning);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 2rem hsl(0, 0%, 0%, 0.5);
+
+  /* Layout */
+  position: fixed;
+  z-index: 1;
+  bottom: var(--pg-padding);
+  margin: 0 var(--pg-padding);
+  /* right: var(--pg-padding); */
+}
+
 @media (min-width: 576px) {
   .video-category-title {
     font-size: 2.5em;
+  }
+  .error {
+    margin: unset;
+    right: var(--pg-padding);
   }
 }
 
