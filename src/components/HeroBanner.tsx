@@ -1,5 +1,6 @@
 import type { MouseEventHandler } from "react";
 import type { VideoCategory } from "../types/videoSeries";
+import VideoPlayer from "./VideoPlayer";
 
 interface HeroBannerPropType {
   videoCategory: VideoCategory | undefined;
@@ -27,16 +28,18 @@ const HeroBanner = ({
             {videoCategory?.description}
           </div>
         </div>
+        {/**
+         * The modal player below is:
+         *  - a fixed element that fills the screen, when screen is small,
+         *  - a static element and hence a flex-item, when screen is big.
+         *
+         * It only displays when there's a video selected.
+         */}
         {currentVideo && (
-          <div className="modal-player" onClick={handleCloseVideo}>
-            <iframe
-              src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
+          <VideoPlayer
+            currentVideo={currentVideo}
+            handleCloseVideo={handleCloseVideo}
+          />
         )}
       </div>
     </div>

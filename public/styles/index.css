@@ -126,8 +126,14 @@ main {
   gap: 2rem;
 }
 
-/* === VIDEO === */
-.video {
+/* === VIDEO CARD === */
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.video-card {
   /* Layout */
   max-width: 24rem;
 
@@ -146,6 +152,15 @@ main {
 .video-title {
   font-size: 1em;
   font-weight: 700;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .video-desc {
@@ -215,6 +230,6 @@ main {
     height: auto;
 
     /* This is a flex-box item now */
-    flex-shrink: 4; /* magic number, but works */
+    flex-shrink: 6; /* magic number, but works */
   }
 }

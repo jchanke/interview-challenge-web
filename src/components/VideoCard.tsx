@@ -18,21 +18,29 @@ const VideoCard = ({ video, handleClickVideo }: VideoCardProps) => {
   const durationMins = Math.ceil(video.durationSeconds / 60);
 
   return (
-    <div className="video" id={video.id}>
+    <div className="video-card" id={video.id}>
       <div
         className="video-thumbnail"
         onClick={() => handleClickVideo(video.youtubeId)}
       >
         <img
+          className="clickable"
           alt={`Video thumbnail for ${video.title}`}
           src={video.images.small}
         />
       </div>
-      <div className="video-title">{video.title}</div>
+      <div className="video-title">
+        <a href="#" onClick={() => handleClickVideo(video.youtubeId)}>
+          {video.title}
+        </a>
+      </div>
       <div className="video-desc">{shortDescription}</div>
       <div className="card-footer">
         <div className="video-duration">{durationMins} minutes</div>
-        <i className="fa-solid fa-circle-chevron-right"></i>
+        <i
+          className="fa-solid fa-circle-chevron-right clickable"
+          onClick={() => handleClickVideo(video.youtubeId)}
+        ></i>
       </div>
     </div>
   );

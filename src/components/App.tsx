@@ -29,6 +29,13 @@ export const App = () => {
   // When user selects region outside video, close modal
   const handleCloseVideo = () => setCurrentVideo(null);
 
+  // Handle debug URL search param
+  const qs = window.location.search;
+  if (qs) {
+    const params = new URLSearchParams(qs);
+    console.log(params.has("debug"));
+  }
+
   return (
     <main>
       <HeroBanner
