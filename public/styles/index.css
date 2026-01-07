@@ -100,6 +100,7 @@ main {
 .video-category-info {
   /* Layout */
   flex-shrink: 0;
+  margin: 8rem 0;
 
   /* Flexbox */
   display: flex;
@@ -120,10 +121,13 @@ main {
 }
 
 .video-category-desc {
-  box-sizing: border-box;
+  /* Visuals */
   font-size: 1em;
   font-weight: 600;
   line-height: 1.5em;
+
+  /* Layout */
+  box-sizing: border-box;
   max-width: var(--max-width-video-category-desc);
 }
 

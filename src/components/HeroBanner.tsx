@@ -28,19 +28,21 @@ const HeroBanner = ({
             {videoCategory?.description}
           </div>
         </div>
-        {/**
-         * The modal player below is:
-         *  - a fixed element that fills the screen, when screen is small,
-         *  - a static element and hence a flex-item, when screen is big.
-         *
-         * It only displays when there's a video selected.
-         */}
-        {currentVideo && (
-          <VideoPlayer
-            currentVideo={currentVideo}
-            handleCloseVideo={handleCloseVideo}
-          />
-        )}
+        {
+          /**
+           * The modal player below is:
+           *  - a fixed element that fills the screen, when screen is small,
+           *  - a static element and hence a flex-item, when screen is big.
+           *
+           * It only displays when there's a video selected.
+           */
+          currentVideo && (
+            <VideoPlayer
+              currentVideo={currentVideo}
+              handleCloseVideo={handleCloseVideo}
+            />
+          )
+        }
       </div>
     </div>
   );
