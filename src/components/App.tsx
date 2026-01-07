@@ -30,23 +30,16 @@ export const App = () => {
   const handleCloseVideo = () => setCurrentVideo(null);
 
   return (
-    <main className="container">
-      <HeroBanner videoCategory={videoSeries?.videoCategory} />
+    <main>
+      <HeroBanner
+        videoCategory={videoSeries?.videoCategory}
+        currentVideo={currentVideo}
+        handleCloseVideo={handleCloseVideo}
+      />
       <VideoGrid
         videos={videoSeries?.videoCategory.videos}
         handleClickVideo={setCurrentVideo}
       />
-      {currentVideo && (
-        <div className="modal-player" onClick={handleCloseVideo}>
-          <iframe
-            src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
-        </div>
-      )}
     </main>
   );
 };

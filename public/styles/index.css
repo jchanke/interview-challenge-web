@@ -55,6 +55,10 @@ main {
   height: 60vh;
   position: relative; /* needed for ::before pseudo-child to not overflow */
   overflow: hidden;
+
+  /* Flexbox */
+  display: flex;
+  flex-direction: column;
 }
 
 /**
@@ -70,10 +74,18 @@ main {
   mix-blend-mode: soft-light;
 }
 
+.container {
+  /* Layout */
+  flex-grow: 1;
+
+  /* Flexbox */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* sets video-category-info roughly halfway down */
+}
+
 .video-category-info {
-  /* Layout — title is roughly halfway down the hero banner */
-  position: relative;
-  top: 25%;
+  /* Flexbox */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -109,8 +121,8 @@ main {
 
 .repsonsive-grid {
   display: grid;
-  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
 }
 
 /* === VIDEO === */
@@ -185,9 +197,6 @@ main {
   .video-category-title {
     font-size: 2.5em;
   }
-  .video-category-desc {
-    width: min(60%, var(--max-width-video-category-desc));
-  }
 }
 
 @media (min-width: 768px) {
@@ -196,6 +205,19 @@ main {
   }
   .video-category-desc {
     font-size: 1.25em;
-    width: min(50%, var(--max-width-video-category-desc));
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-player {
+    position: static;
+    width: auto;
+    height: auto;
+    justify-self: stretch;
+
+    iframe {
+      max-width: inherit;
+      height: inherit;
+    }
   }
 }
