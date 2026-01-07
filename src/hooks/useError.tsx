@@ -10,8 +10,8 @@ const useError = (initialErrorMsg: string | null, timeoutMs: number) => {
       clearTimeout(timeoutId);
     }
     // If there's a new errorMessage: set it, and set a new timeout to clear it
+    setErrorMsg(newErrorMessage);
     if (newErrorMessage) {
-      setErrorMsg(newErrorMessage);
       const id = setTimeout(() => {
         setErrorMsg(null);
       }, timeoutMs);

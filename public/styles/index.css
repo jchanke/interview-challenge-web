@@ -1,10 +1,14 @@
+/* ========================================
+   THEME & GLOBALS
+   ======================================== */
+
 /**
- * Breakpoints (following Bootstrap UI): 
+ * Breakpoints (following Bootstrap UI):
  *  - sm: >= 576px
  *  - md: >= 768px
  */
 :root {
-  --max-width-video-category-desc: 30em;
+  --max-width-video-category-desc: 25em;
   --pg-padding: 7vw; /* for hero-banner, video-list */
   --bg-warning: #dc3545;
 }
@@ -21,7 +25,9 @@ main {
   font-display: swap;
 }
 
-/* === HERO BANNER === */
+/* ========================================
+   HERO BANNER COMPONENT
+   ======================================== */
 
 .hero-banner {
   /* Visuals */
@@ -113,7 +119,9 @@ main {
   max-width: var(--max-width-video-category-desc);
 }
 
-/* === VIDEO LIST === */
+/* ========================================
+   VIDEO GRID COMPONENT
+   ======================================== */
 
 .video-list {
   /* Layout */
@@ -127,11 +135,12 @@ main {
   gap: 2rem;
 }
 
-/* === VIDEO CARD === */
-.clickable {
-  &:hover {
-    cursor: pointer;
-  }
+/* ========================================
+   VIDEO CARD COMPONENT
+   ======================================== */
+
+.clickable:hover {
+  cursor: pointer;
 }
 
 .video-card {
@@ -182,7 +191,9 @@ main {
   justify-content: space-between;
 }
 
-/* === VIDEO PLAYER === */
+/* ========================================
+   VIDEO PLAYER COMPONENT
+   ======================================== */
 
 .modal-player {
   /* Visual */
@@ -210,8 +221,11 @@ main {
   }
 }
 
-/* === TOAST NOTIFICATION === */
-.error {
+/* ========================================
+   TOAST NOTIFICATION COMPONENT
+   ======================================== */
+
+.toast {
   /* Visual */
   color: white;
   background-color: var(--bg-warning);
@@ -224,14 +238,28 @@ main {
   z-index: 1;
   bottom: var(--pg-padding);
   margin: 0 var(--pg-padding);
-  /* right: var(--pg-padding); */
+
+  /* Animation */
+  opacity: 0;
+  transform: translateX(calc(2 * var(--pg-padding)));
+
+  transition: opacity 100ms ease, transform 200ms ease;
 }
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================
+   RESPONSIVE OVERRIDES
+   ======================================== */
 
 @media (min-width: 576px) {
   .video-category-title {
     font-size: 2.5em;
   }
-  .error {
+  .toast {
     margin: unset;
     right: var(--pg-padding);
   }

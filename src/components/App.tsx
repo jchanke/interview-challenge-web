@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
+import useError from "../hooks/useError";
+
 import type { VideoSeries } from "../types/videoSeries";
 
-import useError from "../hooks/useError";
 import HeroBanner from "./HeroBanner";
+import Toast from "./Toast";
 import VideoGrid from "./VideoGrid";
 
-const DEBUG_THRESHOLD = 0.3;
+const DEBUG_THRESHOLD = 0.3; // error probability with ?debug URL query param
+const TOAST_DURATION_MS = 3000; // duration (ms) that toast is displayed
 
 export const App = () => {
   const [videoSeries, setVideoSeries] = useState<VideoSeries | null>(null);
   const [currentVideo, setCurrentVideo] = useState<string | null>(null);
-  const { error, setError } = useError(null, 3000);
+  const { error, setError } = useError(null, TOAST_DURATION_MS);
 
   // On page load, load video data from API
   const getVideoSeriesData = async () => {
@@ -36,10 +39,10 @@ export const App = () => {
     getVideoSeriesData();
   }, []);
 
-  // When user selects video, open modal
+  // When user selects video, open modal (handle errors gracefully)
   const setVideoWithError = (videoYouTubeId: string) => {
     try {
-      // Check if 'debug' is in URL search params
+      // If 'debug' is in URL search params: fail with some probability
       const qs = window.location.search;
       if (qs) {
         const params = new URLSearchParams(qs);
@@ -47,8 +50,9 @@ export const App = () => {
           throw new Error("Simulated video opening failure");
         }
       }
-      // Set the video to the new YouTube id
+      // Set the video to the new YouTube id + remove any error messages
       setCurrentVideo(videoYouTubeId);
+      setError(null);
     } catch (err) {
       if (err instanceof Error) {
         setError("Something went wrong opening that video. Please try again.");
@@ -63,7 +67,6 @@ export const App = () => {
 
   return (
     <main>
-      {error && <div className="error">{error}</div>}
       <HeroBanner
         videoCategory={videoSeries?.videoCategory}
         currentVideo={currentVideo}
@@ -73,6 +76,7 @@ export const App = () => {
         videos={videoSeries?.videoCategory.videos}
         handleClickVideo={setVideoWithError}
       />
+      <Toast errorMessage={error} setError={setError} />
     </main>
   );
 };
