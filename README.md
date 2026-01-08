@@ -8,6 +8,9 @@ This is my solution for the [BibleProject Web Challenge](https://github.com/theb
 
 View the website [here](https://jchanke.github.io/interview-challenge-web/?debug)!
 
+| ![interview-challenge-web-desktop](https://github.com/user-attachments/assets/b8d61800-c259-41af-b9a2-8ead53ea2e2a) | ![interview-challenge-web-mobile](https://github.com/user-attachments/assets/19e598bc-f23d-4507-8e14-f5a0bfb6d723) |
+|---|---|
+
 ## Technical highlights
 
 Sharing some technical highlights to document what I learnt from building this. :)
