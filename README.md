@@ -33,10 +33,8 @@ When the query parameter `?debug` is set, clicking on video thumbnails fails wit
  - _Toast queue._ Allow the Toast component to have multiple colors (success, info, warning) + with a queue (store multiple timeouts)
 
 ## AI usage
-I used VSCode's Copilot (GPT-5 Codex) and Claude Code while building this site. As a learning exercise, I kept AI usage to a minimum, using it to suggest ideas  
-(for the video player), or to help with configuration & deployment. Instead of copy-pasting code, I asked it to explain components I didn't understand.
+I used VSCode's Copilot (GPT-5 Codex) and Claude Code while building this site. As a learning exercise, I kept AI usage to a minimum, using it to suggest ideas (for the video player), or to help with configuration & deployment. Instead of copy-pasting code, I asked it to explain components I didn't understand.
 
-I'm now a bit more familiar with working with Claude Code. I liked using it to draft the type interface, summarize changes and draft commit messages, or suggest
-possible re-factorings. It wasn't perfect, but seems pretty good with writing components.
+I'm now a bit more familiar with working with Claude Code. I liked using it to draft the type interface, summarize changes and draft commit messages, or suggest possible re-factorings. It wasn't perfect, but seems pretty good with writing components.
 
 I spent aounrd 12-16 hours on this over 2 days, instead of the suggested 6 — but mostly because I had fun and learnt so much from it! :)
